@@ -1,5 +1,5 @@
-Summary:	xpertmud - extensible MUD client
-Summary(pl):	xpertmud - elastyczny klient MUD
+Summary:	Xpertmud - extensible MUD client
+Summary(pl):	Xpertmud - elastyczny klient MUD
 Name:		xpertmud
 Version:	3.1preview1
 Release:	0.1
@@ -34,41 +34,45 @@ code.
 
 %description -l pl
 Xpertmud jest elastycznym klientem MUD. Wspiera takie jêzyki skryptowe
-jak perl, python oraz czê¶ciowo ruby. Posiada obs³ugê wielu okien (które
-mo¿na dowoli oskryptowaæ!). Oczywi¶cie mo¿na stosowaæ triggery, aliasy,
-oraz masz mo¿liwo¶æ zrobiæ co tylko zapragniesz z tekstem, który wysy³asz, 
-b±d¼ odbierasz do/z serwera mud. Poza tym Xpertmud posiada stabilne
-oraz proste do poznania API do wtyczek. Dziêki temu mo¿esz poszerzyæ jego
-mo¿liwo¶ci pisz±c dodatki oparte na Qt.
+jak perl, python oraz czê¶ciowo ruby. Posiada obs³ugê wielu okien
+(które mo¿na do woli oskryptowaæ!). Oczywi¶cie mo¿na stosowaæ
+triggery, aliasy oraz jest mo¿liwo¶æ zrobienia czego siê tylko
+zapragnie z wysy³anym do, b±d¼ odbieranym z serwera mud tekstem. Poza
+tym Xpertmud posiada stabilne oraz proste do poznania API do wtyczek.
+Dziêki temu mo¿na poszerzyæ jego mo¿liwo¶ci pisz±c dodatki oparte na
+Qt.
 
 %package scripting-python
-Summary:	Python scripting package
+Summary:	Xpertmud - Python scripting package
+Summary(pl):	Xpertmud - biblioteka do pisania skryptów w pythonie
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
 Requires:	python >= 2.2.2
 
 %description scripting-python
-Python scripting library for xpertmud.
+Python scripting library for Xpertmud.
 
 %description scripting-python -l pl
-Biblioteka Xpertmuda do pisania skryptów w pythonie.
+Biblioteka Xpertmuda do pisania skryptów w Pythonie.
 
 %package scripting-ruby
-Summary:	Ruby scripting package
+Summary:	Xpertmud - Ruby scripting package
+Summary(pl):	Xpertmud - biblioteka do pisania skryptów w Ruby
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
 Requires:	ruby >= 1.6.8
 
 %description scripting-ruby
-Ruby scripting library for xpertmud.
+Ruby scripting library for Xpertmud.
 
 %description scripting-ruby -l pl
-Biblioteka Xpertmuda do pisania skryptów w ruby.
+Biblioteka Xpertmuda do pisania skryptów w Ruby.
 
 %package plugins-misc-BattleTech
-Requires:	xpertmud = %{version}-%{release}
-Summary:	BattleTech plugin
+Summary:	Xpertmud - BattleTech plugin
+Summary(pl):	Xpertmud - wtyczka Xpertmuda do BattleTech
 Group:		X11/Applications/Games
+Requires:	xpertmud = %{version}-%{release}
 
 %description plugins-misc-BattleTech
 Xpertmud BattleTech plugin.
@@ -77,20 +81,19 @@ Xpertmud BattleTech plugin.
 Wtyczka Xpertmuda do BattleTech.
 
 %package plugins-misc-html
-Requires:       xpertmud = %{version}-%{release}
-Summary:        Rapid Gui Development plugin
-Group:          X11/Applications/Games
+Summary:	Xpertmud - Rapid Gui Development plugin
+Summary(pl):	Xpertmud - wtyczka do szybkiego tworzenia GUI
+Group:		X11/Applications/Games
+Requires:	xpertmud = %{version}-%{release}
 
 %description plugins-misc-html
 Plugin for "Rapid Gui Development" utilizing (D)HTML and javascript.
 
-
 %description plugins-misc-html -l pl
 Wtyczka do szybkiego tworzenia GUI ("Rapid Gui Development"),
-wykorzystujaca do tego (D)HTML oraz javascript.
+wykorzystuj±ca do tego (D)HTML oraz javascript.
 
 %prep
-
 %setup -q -n %{name}-%{version}
 
 %build
@@ -111,14 +114,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%%doc AUTHORS ChangeLog DESIGN TODO
-%%attr(755,root,root) %{_bindir}/*
+%doc AUTHORS ChangeLog DESIGN TODO
+%attr(755,root,root) %{_bindir}/*
 %{_libdir}/kde3/kfile_xmud.la
-%{_libdir}/kde3/kfile_xmud.so
+%attr(755,root,root) %{_libdir}/kde3/kfile_xmud.so
 %{_libdir}/kde3/libxmperlinterpreter.la
-%{_libdir}/kde3/libxmperlinterpreter.so
+%attr(755,root,root) %{_libdir}/kde3/libxmperlinterpreter.so
 %{_libdir}/kde3/xmud_example.la
-%{_libdir}/kde3/xmud_example.so
+%attr(755,root,root) %{_libdir}/kde3/xmud_example.so
 %{_applnkdir}/Games/xpertmud.desktop
 %{_datadir}/apps/xpertmud/artwork/*
 %{_datadir}/apps/xpertmud/bookmarks/*
@@ -140,18 +143,18 @@ rm -rf $RPM_BUILD_ROOT
 %files scripting-python
 %defattr(644,root,root,755)
 %{_libdir}/kde3/libxmpythoninterpreter.la
-%{_libdir}/kde3/libxmpythoninterpreter.so
+%attr(755,root,root) %{_libdir}/kde3/libxmpythoninterpreter.so
 %{_datadir}/apps/xpertmud/python/tapp.py
 
 %files scripting-ruby
 %defattr(644,root,root,755)
 %{_libdir}/kde3/libxmrubyinterpreter.la
-%{_libdir}/kde3/libxmrubyinterpreter.so
+%attr(755,root,root) %{_libdir}/kde3/libxmrubyinterpreter.so
 
 %files plugins-misc-BattleTech
 %defattr(644,root,root,755)
 %{_libdir}/kde3/xmud_battletech.la
-%{_libdir}/kde3/xmud_battletech.so
+%attr(755,root,root) %{_libdir}/kde3/xmud_battletech.so
 %{_datadir}/apps/xpertmud/perl/XMBattleContacts.pm
 %{_datadir}/apps/xpertmud/perl/XMBattleCore.pm
 %{_datadir}/apps/xpertmud/perl/XMBattleHeat.pm
@@ -170,5 +173,5 @@ rm -rf $RPM_BUILD_ROOT
 %files plugins-misc-html
 %defattr(644,root,root,755)
 %{_libdir}/kde3/xmud_html.la
-%{_libdir}/kde3/xmud_html.so
+%attr(755,root,root) %{_libdir}/kde3/xmud_html.so
 %{_datadir}/apps/xpertmud/perl/XMHTML.pm

@@ -11,6 +11,7 @@ URL:		http://xpertmud.sourceforge.net
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	automake
 BuildRequires:	autoconf
+BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	libart_lgpl-devel
 BuildRequires:	libtool

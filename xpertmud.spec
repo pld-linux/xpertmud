@@ -8,6 +8,7 @@ Release:	0.%{_rc}_%{_snap}.1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:        ftp://distfiles.pld-linux.org/src/%{name}-%{version}%{_rc}-%{_snap}.tar.bz2
+# Source0-md5:	c4d266fe5d1eca8a7cb4fbf1ee66e3fd
 Source1:	%{name}.desktop
 Patch0:		xpertmud-cvs.patch
 URL:		http://xpertmud.sourceforge.net/

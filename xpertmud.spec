@@ -1,14 +1,14 @@
-%define		_rc	alpha1
-%define		_snap	20040923
+%define		_rc	alpha2
+%define		_snap	20050319
 Summary:	Xpertmud - extensible MUD client
 Summary(pl):	Xpertmud - elastyczny klient MUD
 Name:		xpertmud
-Version:	3.2
-Release:	0.%{_rc}_%{_snap}.2
+Version:	3.1
+Release:	0.%{_rc}_%{_snap}.1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}%{_rc}-%{_snap}.tar.bz2
-# Source0-md5:	c4d266fe5d1eca8a7cb4fbf1ee66e3fd
+# Source0-md5:	a8126a7d9420a6fa8fe4c244d00f2ea4
 Source1:	%{name}.desktop
 Patch0:		xpertmud-cvs.patch
 URL:		http://xpertmud.sourceforge.net/
@@ -21,6 +21,7 @@ BuildRequires:	libart_lgpl-devel
 BuildRequires:	libtool
 BuildRequires:	pcre-devel
 BuildRequires:	perl-devel
+BuildRequires:	perl-perldoc
 BuildRequires:	python-devel
 BuildRequires:	qt-devel
 BuildRequires:	ruby-devel

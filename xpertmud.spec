@@ -1,5 +1,6 @@
 %define		_rc	alpha1
 %define		_snap	20040923
+%define		_docs	%{_kdedocdir}/en/xpertmud
 Summary:	Xpertmud - extensible MUD client
 Summary(pl):	Xpertmud - elastyczny klient MUD
 Name:		xpertmud
@@ -114,8 +115,14 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_docs}
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 cp %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+
+install doc/en/index.cache.bz2 $RPM_BUILD_ROOT/%{_docs}
+install doc/en/index.docbook $RPM_BUILD_ROOT/%{_docs}
+install doc/en/perl-devel.docbook $RPM_BUILD_ROOT/%{_docs}
+install doc/en/python-devel.docbook $RPM_BUILD_ROOT/%{_docs}
 
 %find_lang %{name}
 
@@ -153,6 +160,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/32x32/apps/xpertmud.png
 %{_iconsdir}/locolor/16x16/apps/xpertmud.png
 %{_iconsdir}/locolor/32x32/apps/xpertmud.png
+%dir %{_docs}/
+%{_docs}/index.cache.bz2
+%{_docs}/index.docbook
+%{_docs}/perl-devel.docbook
+%{_docs}/python-devel.docbook
 
 %files scripting-python
 %defattr(644,root,root,755)

@@ -7,7 +7,7 @@ Version:	3.2
 Release:	0.%{_rc}_%{_snap}.1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:        ftp://distfiles.pld-linux.org/src/%{name}-%{version}%{_rc}-%{_snap}.tar.bz2
+Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}%{_rc}-%{_snap}.tar.bz2
 # Source0-md5:	c4d266fe5d1eca8a7cb4fbf1ee66e3fd
 Source1:	%{name}.desktop
 Patch0:		xpertmud-cvs.patch
@@ -126,7 +126,7 @@ install doc/en/{index.cache.bz2,index.docbook,perl-devel.docbook,python-devel.do
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %files -f %{name}.lang

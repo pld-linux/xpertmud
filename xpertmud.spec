@@ -60,7 +60,7 @@ Summary:	Xpertmud - Ruby scripting package
 Summary(pl):	Xpertmud - biblioteka do pisania skryptów w Ruby
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
-Requires:	ruby >= 1.6.8
+Requires:	ruby >= 1:1.6.8
 
 %description scripting-ruby
 Ruby scripting library for Xpertmud.

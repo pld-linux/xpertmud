@@ -1,12 +1,15 @@
+%define		_rc	alpha1
+%define		_snap	20040923
 Summary:	Xpertmud - extensible MUD client
 Summary(pl):	Xpertmud - elastyczny klient MUD
 Name:		xpertmud
-Version:	3.1preview1
-Release:	0.1
+Version:	3.2
+Release:	0.%{_rc}_%{_snap}.1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://dl.sourceforge.net/xpertmud/%{name}-%{version}.tar.bz2
-# Source0-md5:	c8dc5df62c5b9e70cbdf1802810e46c5
+Source0:        ftp://distfiles.pld-linux.org/src/%{name}-%{version}%{_rc}-%{_snap}.tar.bz2
+Source1:	%{name}.desktop
+Patch0:		xpertmud-cvs.patch
 URL:		http://xpertmud.sourceforge.net/
 BuildRequires:	artsc-devel
 BuildRequires:	automake
@@ -94,11 +97,13 @@ Wtyczka do szybkiego tworzenia GUI ("Rapid Gui Development"),
 wykorzystuj±ca do tego (D)HTML oraz javascript.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{version}%{_rc}
+%patch0 -p0
 
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
+make -f Makefile.dist
 %configure
 %{__make}
 
@@ -110,8 +115,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name}
 
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+cp %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -123,8 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/libxmperlinterpreter.so
 %{_libdir}/kde3/xmud_example.la
 %attr(755,root,root) %{_libdir}/kde3/xmud_example.so
-# FIXME: translate to desktopdir; applnkdir is no more
-#%{_applnkdir}/Games/xpertmud.desktop
+%{_desktopdir}/%{name}.desktop
 %dir %{_datadir}/apps/xpertmud
 %{_datadir}/apps/xpertmud/artwork
 %{_datadir}/apps/xpertmud/bookmarks
@@ -164,6 +176,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/xpertmud/perl/XMBattleMapView.pm
 %{_datadir}/apps/xpertmud/perl/XMBattleSpeed.pm
 %{_datadir}/apps/xpertmud/perl/XMBattleWeapons.pm
+%{_datadir}/apps/xpertmud/perl/battlerecorder.pl
+%{_datadir}/apps/xpertmud/perl/htmlmapper.pl
 %{_datadir}/apps/xpertmud/perl/xperthud.pl
 %dir %{_datadir}/apps/xpertmud/python
 %{_datadir}/apps/xpertmud/python/battletech.py

@@ -7,8 +7,7 @@ License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/xpertmud/%{name}-%{version}.tar.bz2
 # Source0-md5:	c8dc5df62c5b9e70cbdf1802810e46c5
-URL:		http://xpertmud.sourceforge.net
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+URL:		http://xpertmud.sourceforge.net/
 BuildRequires:	artsc-devel
 BuildRequires:	automake
 BuildRequires:	autoconf
@@ -23,6 +22,7 @@ BuildRequires:	qt-devel
 BuildRequires:	ruby-devel
 Requires:	kdelibs >= 3.1
 Requires:	perl >= 5.6
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Xpertmud is an extensible perl, python and ruby (partialy) scriptable
@@ -99,20 +99,21 @@ wykorzystuj±ca do tego (D)HTML oraz javascript.
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
-
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog DESIGN TODO
 %attr(755,root,root) %{_bindir}/*
@@ -122,23 +123,25 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/libxmperlinterpreter.so
 %{_libdir}/kde3/xmud_example.la
 %attr(755,root,root) %{_libdir}/kde3/xmud_example.so
-%{_applnkdir}/Games/xpertmud.desktop
-%{_datadir}/apps/xpertmud/artwork/*
-%{_datadir}/apps/xpertmud/bookmarks/*
+# FIXME: translate to desktopdir; applnkdir is no more
+#%{_applnkdir}/Games/xpertmud.desktop
+%dir %{_datadir}/apps/xpertmud
+%{_datadir}/apps/xpertmud/artwork
+%{_datadir}/apps/xpertmud/bookmarks
+%dir %{_datadir}/apps/xpertmud/perl
 %{_datadir}/apps/xpertmud/perl/XMExample.pm
 %{_datadir}/apps/xpertmud/perl/pipes.pl
 %{_datadir}/apps/xpertmud/perl/completion.pl
 %{_datadir}/apps/xpertmud/perl/snake.pl
 %{_datadir}/apps/xpertmud/perl/speedwalk.pl
 %{_datadir}/apps/xpertmud/xpertmudui.rc
-%{_pixmapsdir}/hicolor/16x16/apps/xpertmud.png
-%{_pixmapsdir}/hicolor/32x32/apps/xpertmud.png
-%{_pixmapsdir}/locolor/16x16/apps/xpertmud.png
-%{_pixmapsdir}/locolor/32x32/apps/xpertmud.png
-%{_datadir}/locale/de/LC_MESSAGES/xpertmud.mo
 %{_datadir}/mimelnk/application/x-xpertmud-bookmark.desktop
 %{_datadir}/services/kfile_xmud.desktop
 %{_datadir}/services/xpertmud.protocol
+%{_iconsdir}/hicolor/16x16/apps/xpertmud.png
+%{_iconsdir}/hicolor/32x32/apps/xpertmud.png
+%{_iconsdir}/locolor/16x16/apps/xpertmud.png
+%{_iconsdir}/locolor/32x32/apps/xpertmud.png
 
 %files scripting-python
 %defattr(644,root,root,755)
@@ -162,6 +165,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/xpertmud/perl/XMBattleSpeed.pm
 %{_datadir}/apps/xpertmud/perl/XMBattleWeapons.pm
 %{_datadir}/apps/xpertmud/perl/xperthud.pl
+%dir %{_datadir}/apps/xpertmud/python
 %{_datadir}/apps/xpertmud/python/battletech.py
 %{_datadir}/apps/xpertmud/python/bt3030.py
 %{_datadir}/apps/xpertmud/python/btcockpit.py

@@ -1,12 +1,12 @@
 Summary:	xpertmud - extensible MUD client
 Summary(pl):	xpertmud - elastyczny klient MUD
 Name:		xpertmud
-Version:	20031115
+Version:	3.1preview1
 Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://dooh.civ.pl/xpertmud/%{name}-%{version}.tar.bz2
-# Source0-md5:	6e34861e1dee06fc5818d80a23344d02
+Source0:	http://dl.sourceforge.net/xpertmud/%{name}-%{version}.tar.bz2
+# Source0-md5:	c8dc5df62c5b9e70cbdf1802810e46c5
 URL:		http://xpertmud.sourceforge.net
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	artsc-devel
@@ -16,6 +16,7 @@ BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	libart_lgpl-devel
 BuildRequires:	libtool
+BuildRequires:	pcre-devel
 BuildRequires:	perl-devel
 BuildRequires:	python-devel
 BuildRequires:	qt-devel
@@ -31,6 +32,15 @@ text that comes from or goes to the server. There's a stable and
 intuitive plugin API, so you can extend the client with Qt-based C++
 code.
 
+%description -l pl
+Xpertmud jest elastycznym klientem MUD. Wspiera takie jêzyki skryptowe
+jak perl, python oraz czê¶ciowo ruby. Posiada obs³ugê wielu okien (które
+mo¿na dowoli oskryptowaæ!). Oczywi¶cie mo¿na stosowaæ triggery, aliasy,
+oraz masz mo¿liwo¶æ zrobiæ co tylko zapragniesz z tekstem, który wysy³asz, 
+b±d¼ odbierasz do/z serwera mud. Poza tym Xpertmud posiada stabilne
+oraz proste do poznania API do wtyczek. Dziêki temu mo¿esz poszerzyæ jego
+mo¿liwo¶ci pisz±c dodatki oparte na Qt.
+
 %package scripting-python
 Summary:	Python scripting package
 Group:		X11/Applications/Games
@@ -40,6 +50,8 @@ Requires:	python >= 2.2.2
 %description scripting-python
 Python scripting library for xpertmud.
 
+%description scripting-python -l pl
+Biblioteka Xpertmuda do pisania skryptów w pythonie.
 
 %package scripting-ruby
 Summary:	Ruby scripting package
@@ -50,6 +62,9 @@ Requires:	ruby >= 1.6.8
 %description scripting-ruby
 Ruby scripting library for xpertmud.
 
+%description scripting-ruby -l pl
+Biblioteka Xpertmuda do pisania skryptów w ruby.
+
 %package plugins-misc-BattleTech
 Requires:	xpertmud = %{version}-%{release}
 Summary:	BattleTech plugin
@@ -58,20 +73,33 @@ Group:		X11/Applications/Games
 %description plugins-misc-BattleTech
 Xpertmud BattleTech plugin.
 
+%description plugins-misc-BattleTech -l pl
+Wtyczka Xpertmuda do BattleTech.
+
+%package plugins-misc-html
+Requires:       xpertmud = %{version}-%{release}
+Summary:        Rapid Gui Development plugin
+Group:          X11/Applications/Games
+
+%description plugins-misc-html
+Plugin for "Rapid Gui Development" utilizing (D)HTML and javascript.
+
+
+%description plugins-misc-html -l pl
+Wtyczka do szybkiego tworzenia GUI ("Rapid Gui Development"),
+wykorzystujaca do tego (D)HTML oraz javascript.
+
 %prep
 
-%setup -q -n xpertmud
+%setup -q -n %{name}-%{version}
 
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
-%{__make} -f Makefile.dist
-
 %configure
 %{__make}
-
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -80,7 +108,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
 
 %files
 %defattr(644,root,root,755)
@@ -139,3 +166,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/xpertmud/python/contacts.py
 %{_datadir}/apps/xpertmud/python/frequencies.py
 %{_datadir}/apps/xpertmud/python/keybindings.py
+
+%files plugins-misc-html
+%defattr(644,root,root,755)
+%{_libdir}/kde3/xmud_html.la
+%{_libdir}/kde3/xmud_html.so
+%{_datadir}/apps/xpertmud/perl/XMHTML.pm

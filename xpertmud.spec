@@ -1,6 +1,5 @@
 %define		_rc	alpha1
 %define		_snap	20040923
-%define		_docs	%{_kdedocdir}/en/xpertmud
 Summary:	Xpertmud - extensible MUD client
 Summary(pl):	Xpertmud - elastyczny klient MUD
 Name:		xpertmud
@@ -115,16 +114,14 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_docs}
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 cp %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
-install doc/en/index.cache.bz2 $RPM_BUILD_ROOT/%{_docs}
-install doc/en/index.docbook $RPM_BUILD_ROOT/%{_docs}
-install doc/en/perl-devel.docbook $RPM_BUILD_ROOT/%{_docs}
-install doc/en/python-devel.docbook $RPM_BUILD_ROOT/%{_docs}
+install -d $RPM_BUILD_ROOT%{_kdedocdir}/en/xpertmud
+install doc/en/{index.cache.bz2,index.docbook,perl-devel.docbook,python-devel.docbook} \
+	$RPM_BUILD_ROOT%{_kdedocdir}/en/xpertmud
 
-%find_lang %{name}
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -158,13 +155,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/xpertmud.protocol
 %{_iconsdir}/hicolor/16x16/apps/xpertmud.png
 %{_iconsdir}/hicolor/32x32/apps/xpertmud.png
-%{_iconsdir}/locolor/16x16/apps/xpertmud.png
-%{_iconsdir}/locolor/32x32/apps/xpertmud.png
-%dir %{_docs}/
-%{_docs}/index.cache.bz2
-%{_docs}/index.docbook
-%{_docs}/perl-devel.docbook
-%{_docs}/python-devel.docbook
+# non-existent dir
+#%{_iconsdir}/locolor/16x16/apps/xpertmud.png
+#%{_iconsdir}/locolor/32x32/apps/xpertmud.png
 
 %files scripting-python
 %defattr(644,root,root,755)

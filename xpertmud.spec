@@ -4,7 +4,7 @@ Summary:	Xpertmud - extensible MUD client
 Summary(pl):	Xpertmud - elastyczny klient MUD
 Name:		xpertmud
 Version:	3.2
-Release:	0.%{_rc}_%{_snap}.1
+Release:	0.%{_rc}_%{_snap}.2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}%{_rc}-%{_snap}.tar.bz2
@@ -25,7 +25,7 @@ BuildRequires:	python-devel
 BuildRequires:	qt-devel
 BuildRequires:	ruby-devel
 Requires:	kdelibs >= 3.1
-Requires:	perl >= 5.6
+Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

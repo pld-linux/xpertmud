@@ -9,6 +9,7 @@ Source0:	http://dooh.civ.pl/xpertmud/%{name}-%{version}.tar.bz2
 # Source0-md5:	6e34861e1dee06fc5818d80a23344d02
 URL:		http://xpertmud.sourceforge.net
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:	artsc-devel
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	fam-devel

@@ -28,7 +28,7 @@ BuildRequires:	rpmbuild(macros) >= 1.277
 BuildRequires:	ruby-devel
 Requires:	kdelibs >= 3.1
 Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
-%ruby_mod_ver_requires_eq
+%{?ruby_mod_ver_requires_eq}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

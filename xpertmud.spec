@@ -1,7 +1,7 @@
 %define		_rc	alpha2
 %define		_snap	20050319
 Summary:	Xpertmud - extensible MUD client
-Summary(pl):	Xpertmud - elastyczny klient MUD
+Summary(pl.UTF-8):   Xpertmud - elastyczny klient MUD
 Name:		xpertmud
 Version:	3.1
 Release:	0.%{_rc}_%{_snap}.1
@@ -39,19 +39,19 @@ text that comes from or goes to the server. There's a stable and
 intuitive plugin API, so you can extend the client with Qt-based C++
 code.
 
-%description -l pl
-Xpertmud jest elastycznym klientem MUD. Wspiera takie jêzyki skryptowe
-jak perl, python oraz czê¶ciowo ruby. Posiada obs³ugê wielu okien
-(które mo¿na do woli oskryptowaæ!). Oczywi¶cie mo¿na stosowaæ
-triggery, aliasy oraz jest mo¿liwo¶æ zrobienia czego siê tylko
-zapragnie z wysy³anym do, b±d¼ odbieranym z serwera mud tekstem. Poza
+%description -l pl.UTF-8
+Xpertmud jest elastycznym klientem MUD. Wspiera takie jÄ™zyki skryptowe
+jak perl, python oraz czÄ™Å›ciowo ruby. Posiada obsÅ‚ugÄ™ wielu okien
+(ktÃ³re moÅ¼na do woli oskryptowaÄ‡!). OczywiÅ›cie moÅ¼na stosowaÄ‡
+triggery, aliasy oraz jest moÅ¼liwoÅ›Ä‡ zrobienia czego siÄ™ tylko
+zapragnie z wysyÅ‚anym do, bÄ…dÅº odbieranym z serwera mud tekstem. Poza
 tym Xpertmud posiada stabilne oraz proste do poznania API do wtyczek.
-Dziêki temu mo¿na poszerzyæ jego mo¿liwo¶ci pisz±c dodatki oparte na
+DziÄ™ki temu moÅ¼na poszerzyÄ‡ jego moÅ¼liwoÅ›ci piszÄ…c dodatki oparte na
 Qt.
 
 %package scripting-python
 Summary:	Xpertmud - Python scripting package
-Summary(pl):	Xpertmud - biblioteka do pisania skryptów w pythonie
+Summary(pl.UTF-8):   Xpertmud - biblioteka do pisania skryptÃ³w w pythonie
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
 Requires:	python >= 2.2.2
@@ -59,12 +59,12 @@ Requires:	python >= 2.2.2
 %description scripting-python
 Python scripting library for Xpertmud.
 
-%description scripting-python -l pl
-Biblioteka Xpertmuda do pisania skryptów w Pythonie.
+%description scripting-python -l pl.UTF-8
+Biblioteka Xpertmuda do pisania skryptÃ³w w Pythonie.
 
 %package scripting-ruby
 Summary:	Xpertmud - Ruby scripting package
-Summary(pl):	Xpertmud - biblioteka do pisania skryptów w Ruby
+Summary(pl.UTF-8):   Xpertmud - biblioteka do pisania skryptÃ³w w Ruby
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
 Requires:	ruby >= 1:1.6.8
@@ -72,33 +72,33 @@ Requires:	ruby >= 1:1.6.8
 %description scripting-ruby
 Ruby scripting library for Xpertmud.
 
-%description scripting-ruby -l pl
-Biblioteka Xpertmuda do pisania skryptów w Ruby.
+%description scripting-ruby -l pl.UTF-8
+Biblioteka Xpertmuda do pisania skryptÃ³w w Ruby.
 
 %package plugins-misc-BattleTech
 Summary:	Xpertmud - BattleTech plugin
-Summary(pl):	Xpertmud - wtyczka Xpertmuda do BattleTech
+Summary(pl.UTF-8):   Xpertmud - wtyczka Xpertmuda do BattleTech
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
 
 %description plugins-misc-BattleTech
 Xpertmud BattleTech plugin.
 
-%description plugins-misc-BattleTech -l pl
+%description plugins-misc-BattleTech -l pl.UTF-8
 Wtyczka Xpertmuda do BattleTech.
 
 %package plugins-misc-html
 Summary:	Xpertmud - Rapid Gui Development plugin
-Summary(pl):	Xpertmud - wtyczka do szybkiego tworzenia GUI
+Summary(pl.UTF-8):   Xpertmud - wtyczka do szybkiego tworzenia GUI
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
 
 %description plugins-misc-html
 Plugin for "Rapid Gui Development" utilizing (D)HTML and javascript.
 
-%description plugins-misc-html -l pl
+%description plugins-misc-html -l pl.UTF-8
 Wtyczka do szybkiego tworzenia GUI ("Rapid Gui Development"),
-wykorzystuj±ca do tego (D)HTML oraz javascript.
+wykorzystujÄ…ca do tego (D)HTML oraz javascript.
 
 %prep
 %setup -q -n %{name}-%{version}%{_rc}

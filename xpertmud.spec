@@ -1,7 +1,7 @@
 %define		_rc	alpha2
 %define		_snap	20050319
 Summary:	Xpertmud - extensible MUD client
-Summary(pl.UTF-8):   Xpertmud - elastyczny klient MUD
+Summary(pl.UTF-8):	Xpertmud - elastyczny klient MUD
 Name:		xpertmud
 Version:	3.1
 Release:	0.%{_rc}_%{_snap}.1
@@ -51,7 +51,7 @@ Qt.
 
 %package scripting-python
 Summary:	Xpertmud - Python scripting package
-Summary(pl.UTF-8):   Xpertmud - biblioteka do pisania skryptów w pythonie
+Summary(pl.UTF-8):	Xpertmud - biblioteka do pisania skryptów w pythonie
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
 Requires:	python >= 2.2.2
@@ -64,7 +64,7 @@ Biblioteka Xpertmuda do pisania skryptów w Pythonie.
 
 %package scripting-ruby
 Summary:	Xpertmud - Ruby scripting package
-Summary(pl.UTF-8):   Xpertmud - biblioteka do pisania skryptów w Ruby
+Summary(pl.UTF-8):	Xpertmud - biblioteka do pisania skryptów w Ruby
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
 Requires:	ruby >= 1:1.6.8
@@ -77,7 +77,7 @@ Biblioteka Xpertmuda do pisania skryptów w Ruby.
 
 %package plugins-misc-BattleTech
 Summary:	Xpertmud - BattleTech plugin
-Summary(pl.UTF-8):   Xpertmud - wtyczka Xpertmuda do BattleTech
+Summary(pl.UTF-8):	Xpertmud - wtyczka Xpertmuda do BattleTech
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
 
@@ -89,7 +89,7 @@ Wtyczka Xpertmuda do BattleTech.
 
 %package plugins-misc-html
 Summary:	Xpertmud - Rapid Gui Development plugin
-Summary(pl.UTF-8):   Xpertmud - wtyczka do szybkiego tworzenia GUI
+Summary(pl.UTF-8):	Xpertmud - wtyczka do szybkiego tworzenia GUI
 Group:		X11/Applications/Games
 Requires:	xpertmud = %{version}-%{release}
 
